@@ -1,0 +1,18 @@
+server:
+  host: 0.0.0.0
+  port: 6379
+
+storage:
+  shards: 1
+
+ttl:
+  active_scan_interval: 1s
+  sample_size: 20
+
+persistence:
+  aof_enabled: true
+  aof_path: ./data/appendonly.aof
+  fsync_policy: everysec
+
+logging:
+  level: info
