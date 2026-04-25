@@ -43,6 +43,14 @@ func BulkString(value string) []byte {
 	return []byte(fmt.Sprintf("$%d\r\n%s\r\n", len(value), value))
 }
 
+func NullBulkString() []byte {
+	return []byte("$-1\r\n")
+}
+
+func Integer(value int) []byte {
+	return []byte(fmt.Sprintf(":%d\r\n", value))
+}
+
 func readArrayCommand(reader *bufio.Reader) ([]string, error) {
 	line, err := readLine(reader)
 	if err != nil {
